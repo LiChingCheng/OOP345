@@ -1,0 +1,13 @@
+Reflection 1
+
+   In this workshop, the most important concept is how to use the internal linkage and external linkage.
+When the compiler reads the external key word, for example(in our String.cpp):extern const int INITIAL,
+it will know it needs to go to another translation unit(w1.cpp) to find the definition. 
+It means the INITIAL in those different translation units are the same variable.
+However, the internal linkage can only be use within its own translation unit. 
+Even two internal linkages in different translation units have same name, they are the different variables.
+
+In the process() function, we call the String constructor, which receives one parameter, 
+when we assign the temporary String object to the String a. After we assign the temporary object to a, 
+we call the destructor.Finally, the changes that we make in String class is that we change the length 
+of the string from static memory to dynamic memory, then we can store all of the characters from user input.

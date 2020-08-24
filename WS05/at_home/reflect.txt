@@ -1,0 +1,107 @@
+//Li-Ching,Cheng
+//143292175
+//SEE
+
+The difference between the implementations of a functor and a lambda expression.
+A functor is more complexity than a lambda. 
+A lambda doesn’t need to have a name and if we only use one time in our main, 
+we can directly use a lambda instead of a functor because it’s more easy and more fast. 
+Also, we can capture non-local variables by reference.
+
+ex:auto hello = [](float grade) {      —>we directly write the lambda in our main.cpp
+	std::string letter;
+	if (grade > 89) {
+		letter = "A+";
+	}
+	else if (grade > 79) {
+		letter = "A ";
+	}
+	else if (grade > 74) {
+		letter = "B+";
+	}
+	else if (grade > 69) {
+		letter = "B ";
+	}
+	else if (grade > 64) {
+		letter = "C+";
+	}
+	else if (grade > 59) {
+		letter = "C ";
+	}
+	else if (grade > 54) {
+		letter = "D+";
+	}
+	else if (grade > 49) {
+		letter = "D ";
+	}
+	else {
+		letter = "F ";
+	}
+	return letter;
+};                       
+
+namespace sict {          —>However, we need to create another file for functor. 
+	class Taxable {
+		const float taxT;
+	public:
+		Taxable(float tax) :taxT{ tax } {};
+		float operator()(float price) {
+			return price * (1 + taxT);
+		}
+	};
+}
+
+
+A list of the exceptions that you have reported and the cases where you terminated execution normally.
+
+KVList(int n) {
+	if (n > 0) {
+		max = n;
+		pair = new T[max];
+		count = 0;
+		empty = false;
+	}
+	else {
+		throw(1);   —-> The first exception I have reported:
+	}				If n is not positive number.
+}
+
+void push_back(const T& t) {
+	int a;
+	a = max - count;
+	if (a > 0) {
+		pair[count++] = t;
+	}
+	else
+	{
+		throw(2);  —-> The second exception I have reported:
+	}                                   If a(the space) is not greater than 0,
+}						means there has no space for the next. 
+
+try {
+		…..
+	}
+	catch (int& num) {         —->if it catches an exception.
+		if (num == 1) {
+			std::cout << "Parameter < 0." << std::endl;  
+			exit(2);                —->exit No.2
+		}
+		if (num == 2) {
+			std::cout << "No room." << std::endl;
+			exit(3);               —->exit No.3
+		}
+	}
+
+try {
+		….
+	}
+	catch (int& num) {       —->if it catches an exception.
+		if (num == 1) {
+			std::cout << "Parameter < 0." << std::endl;
+			exit(4);          —->exit No.4
+		}
+		if (num == 2) {
+			std::cout << "No room." << std::endl;
+			exit(5);          —->exit No.5
+		}
+	}
