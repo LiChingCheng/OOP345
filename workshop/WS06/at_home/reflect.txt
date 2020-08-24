@@ -1,0 +1,18 @@
+Li-Ching, Cheng 143292175 SEE
+
+The reason for using the vector container rather than any other available in the STL.
+Vector stores its elements in sequence and is similar to an array, 
+but can change the size by itself without coding by us. 
+If we only need to add or delete elements from the back then vector is more suitable for us.
+
+Why there is no need to deallocate the dynamically allocated memory in your own code.
+We do not need to deallocate the dynamically allocated memory is because the vector 
+will deallocate the memory as soon as the array goes out of scope. The vector can do self-cleanup.
+
+How the range-based for simplifies coding in this case.
+Instead of using product[i], we pass its reference(&) into for loop.
+ex:
+for (auto& i : product) {
+	os << std::setw(fw) << std::setprecision(2) << std::fixed << *i << std::endl;
+	total += i->price();
+}

@@ -1,0 +1,22 @@
+The reason for using the vector container rather than any other available in the STL.
+--Vector is more convenient than an array. It can store the contiguous storage of variable size not fixed size.
+
+List the STL template functions that you used in your solution.
+--T mean = std::accumulate(yValue.begin(), yValue.end(), (T)0) / yValue.size();
+std::sort(sortY.begin(), sortY.end());
+sigma = std::sqrt(count / (yValue.size() - 1));
+T sumXY = std::inner_product(xValue.begin(), xValue.end(), yValue.begin(), (T)0);
+
+Identify where you used lambda expressions.
+--Lambda expression was used in sigma(). It sums the square after the current y subtracts the mean. 
+
+T DataTable<T>::sigma() const {
+		T count{ 0 };
+		T sigma{ 0 };
+		count = std::accumulate(yValue.begin(), yValue.end(), (T)0, [=](T a, T b) {return a + (b - mean())*(b + mean()); });
+		sigma = std::sqrt(count / (yValue.size() - 1));
+		return sigma;
+	}
+
+Comment on the ease of programming associated with the STL.
+--STL has several different containers and its algorithm can works on the iterators which can point to the data store in the containers.
